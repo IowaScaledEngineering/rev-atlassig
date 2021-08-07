@@ -26,14 +26,14 @@ J1 Pin Meanings
 2 - OUT: This block Occupied (0=OCC)
 3 - IN: Next block approach (0 = next sig red)
 4 - IN/OUT: Force red
-5 - RX: Next block approach (0 = next sig yellow)
+5 - IN: Next block approach (0 = next sig yellow)
 6 - Not Used
 
 J2 Pin Meanings
 1 - Not Used
-2 - RX: Previous Block Occupied (0=OCC, used for approach lighting)
-3 - TX: Stop Signal (0 = signal is red)
+2 - IN: Previous Block Occupied (0=OCC, used for approach lighting)
+3 - OUT: Stop Signal (0 = signal is red)
 4 - IN/OUT: Force red
-5 - TX: Approach Signal (0 = signal is yellow)
+5 - OUT: Approach Signal (0 = signal is yellow)
 6 - Not Used
                    
