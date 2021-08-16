@@ -24,7 +24,7 @@ All lines are low when their meaning is true.
 J1 Pin Meanings
 1 - Not Used
 2 - OUT: This block Occupied (0=OCC)
-3 - IN: Next block approach (0 = next sig red)
+3 - IN: Next block stop/restricting (0 = next sig red)
 4 - IN/OUT: Force red
 5 - IN: Next block approach (0 = next sig yellow)
 6 - Not Used
