@@ -1,7 +1,7 @@
 v 20130925 2
 T 66700 39100 9 10 1 0 0 0 2
 Atlas Interlock Control Module 4.3
-Part 70 000 046   (Reverse engineered 2021)
+Part 70 000 047   (Reverse engineered 2021)
 T 66700 38800 9 10 1 0 0 0 1
 rev-atlasinterlock.sch
 T 66900 38500 9 10 1 0 0 0 1
