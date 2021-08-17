@@ -18,22 +18,44 @@ Basics:
  - J1 is the downline 6p6c port (see diagram)
  - J2 is the upline 6p6c port (see diagram)
  - The system is 5V, open collector based.  Do not exceed 5V on any bus wire
+ - If Rin or any of the Force Red inputs are used, it does not propagate upstream.
+    This signal will turn red, but will not signal through J2-3 that the signal is red,
+    so the next signal up the line will remain green
+ 
 
 All lines are low when their meaning is true.
 
 J1 Pin Meanings
 1 - Not Used
 2 - OUT: This block Occupied (0=OCC)
-3 - IN: Next block stop/restricting (0 = next sig red)
-4 - IN/OUT: Force red
-5 - IN: Next block approach (0 = next sig yellow)
+3 - IN:  Next block stop/restricting (0 = next sig red)
+4 - IN:  Force red
+5 - IN:  Next block approach (0 = next sig yellow)
 6 - Not Used
 
 J2 Pin Meanings
 1 - Not Used
-2 - IN: Previous Block Occupied (0=OCC, used for approach lighting)
+2 - IN:  Previous Block Occupied (0=OCC, used for approach lighting)
 3 - OUT: Stop Signal (0 = signal is red)
-4 - IN/OUT: Force red
+4 - IN:  Force red
 5 - OUT: Approach Signal (0 = signal is yellow)
 6 - Not Used
                    
+
+Truth Table (non-approach lighting mode)
+-----------------------------
+|** INPUTS ****************||** OUTPUTS ******************|
+| Din | J1-3 | J1-4 | J1-5 || Signal | J1-2 | J2-3 | J2-5 |
+|     |      | J2-4 |      ||        | NXOCC| S-RED| S-YLW|
+|-----|------|------|------||--------|------|------|------|
+|  0  |   X  |   X  |   X  ||  RED   |   0  |   0  | J1-3 |
+|  1  |   X  |   0  |   X  ||  RED   |   0  |   1  | J1-3 |
+|  1  |   0  |   1  |   X  ||  YEL   |   1  |   1  |   0  |
+|  1  |   1  |   1  |   0  || FL-YEL |   1  |   1  |   1  |
+|  1  |   1  |   1  |   1  || GREEN  |   1  |   1  |   1  |
+
+
+0 = Actively grounded
+1 = Floating/open/high (>2V or so)
+X = Does not matter
+J1-3 = Follows another pin, as indicated
